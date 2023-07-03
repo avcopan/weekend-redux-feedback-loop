@@ -35,10 +35,10 @@ else {
   pool = new pg.Pool(pool_args);
 }
 
-pool
-  .query("SELECT * FROM feedback;")
-  .then((result) => result.rows)
-  .then(console.log)
-  .catch(console.error);
+// pool
+//   .query("SELECT * FROM feedback;")
+//   .then((result) => result.rows)
+//   .then(console.log)
+//   .catch(console.error);
 
 module.exports = pool;
