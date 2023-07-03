@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-const PAGE_DATA = {
+const SURVEY_DATA = {
   1: {
     question: "How are you feeling today?",
   },
@@ -24,7 +24,7 @@ export function SurveyForm({ page }) {
 
   return (
     <>
-      <h2>{PAGE_DATA[page].question}</h2>
+      <h2>{SURVEY_DATA[page].question}</h2>
       <button onClick={navigateToNextPage}>Next</button>
     </>
   );
