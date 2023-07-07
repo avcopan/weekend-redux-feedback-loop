@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const SURVEY_DATA = {
@@ -17,14 +18,21 @@ const SURVEY_DATA = {
 
 export function SurveyQuestion({ page }) {
   const navigate = useNavigate();
+  const [inputValue, setInputValue] = useState("");
 
   const navigateToNextPage = () => {
     navigate(`/survey/${page + 1}`);
   };
 
+  const handleInputChange = (event) => {
+    setInputValue(event.target.value);
+  };
+
   return (
     <>
       <h2>{SURVEY_DATA[page].question}</h2>
+      <input type="text" value={inputValue} onChange={handleInputChange} />
+      <br />
       <button onClick={navigateToNextPage}>Next</button>
     </>
   );
