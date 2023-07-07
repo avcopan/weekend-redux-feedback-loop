@@ -23,6 +23,7 @@ export function SurveyReview() {
           })}
         </tbody>
       </table>
+      <button>Submit</button>
     </div>
   );
 }
