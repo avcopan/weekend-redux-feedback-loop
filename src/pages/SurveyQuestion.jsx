@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import surveySlice from "../state/surveySlice";
 
-export function SurveyQuestion({ page: index }) {
+export function SurveyQuestion({ index }) {
   const survey = useSelector((store) => store.survey);
   const dispatch = useDispatch();
   const navigate = useNavigate();
