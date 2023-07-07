@@ -1,5 +1,12 @@
+.Layout {
+  text-align: center;
+}
 
-.Header-header {
+.Layout-intro {
+  font-size: large;
+}
+
+.Layout-header {
   background-color: #033076;
   min-height: 70px;
   padding: 20px;
@@ -7,7 +14,7 @@
   margin-bottom: 20px;
 }
 
-.Header-title {
+.Layout-title {
   font-size: 2em;
 }
 
