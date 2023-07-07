@@ -15,7 +15,7 @@ const SURVEY_DATA = {
   },
 };
 
-export function SurveyForm({ page }) {
+export function SurveyQuestion({ page }) {
   const navigate = useNavigate();
 
   const navigateToNextPage = () => {
