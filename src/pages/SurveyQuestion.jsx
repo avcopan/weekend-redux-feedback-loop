@@ -1,48 +1,38 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import surveySlice from "../state/surveySlice";
 
-const SURVEY = [
-  {
-    question: "How are you feeling today?",
-    action: surveySlice.actions.setFeeling,
-  },
-  {
-    question: "How well are you understanding the content?",
-    action: surveySlice.actions.setUnderstanding,
-  },
-  {
-    question: "How well are you being supported?",
-    action: surveySlice.actions.setSupport,
-  },
-  {
-    question: "Any comments you have?",
-    action: surveySlice.actions.setComments,
-  },
-];
-
-export function SurveyQuestion({ page }) {
+export function SurveyQuestion({ index }) {
+  const survey = useSelector((store) => store.survey);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [inputValue, setInputValue] = useState("");
+  const [response, setResponse] = useState("");
 
-  const handleNextClick = () => {
-    dispatch(SURVEY[page].action(inputValue));
-    setInputValue("");
-    navigate(`/survey/${page + 1}`);
-  };
+  const handleClick = () => {
+    const payload = [index, response];
+    setResponse("");
 
-  const handleInputChange = (event) => {
-    setInputValue(event.target.value);
+    // Enter the response to the store
+    dispatch(surveySlice.actions.enterResponse(payload));
+
+    // Navigate to the next question page, if there is one.
+    // Otherwise, navigate to the survey review page.
+    const route =
+      index + 1 < survey.length ? `/survey/${index + 1}` : "/survey/review";
+    navigate(route);
   };
 
   return (
     <>
-      <h2>{SURVEY[page].question}</h2>
-      <input type="text" value={inputValue} onChange={handleInputChange} />
+      <h2>{survey[index].question}</h2>
+      <input
+        type="text"
+        value={response}
+        onChange={(event) => setResponse(event.target.value)}
+      />
       <br />
-      <button onClick={handleNextClick}>Next</button>
+      <button onClick={handleClick}>Next</button>
     </>
   );
 }
