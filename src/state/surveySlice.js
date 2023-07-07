@@ -1,20 +1,39 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const BLANK_SURVEY = [
+  {
+    topic: "feeling",
+    question: "How are you feeling today?",
+    response: '',
+  },
+  {
+    topic: "understanding",
+    question: "How well are you understanding the content?",
+    response: '',
+  },
+  {
+    topic: "support",
+    question: "How well are you being supported?",
+    response: '',
+  },
+  {
+    topic: "comments",
+    question: "Any comments you have?",
+    response: '',
+  },
+];
+
 const surveySlice = createSlice({
   name: "survey",
-  initialState: {},
+  initialState: BLANK_SURVEY,
   reducers: {
-    setFeeling(state, action) {
-      return { ...state, feeling: action.payload };
-    },
-    setUnderstanding(state, action) {
-      return { ...state, understanding: action.payload };
-    },
-    setSupport(state, action) {
-      return { ...state, support: action.payload };
-    },
-    setComments(state, action) {
-      return { ...state, comments: action.payload };
+    enterResponse(state, action) {
+      const [index, response] = action.payload;
+      console.log("index:", index);
+      console.log("response:", response);
+      // This state-mutating syntax doesn't actually mutate state, because RTK
+      // uses Immer
+      state[index].response = response;
     },
   },
 });
