@@ -2,6 +2,11 @@ import { useSelector } from "react-redux";
 
 export function SurveyReview() {
   const survey = useSelector((store) => store.survey);
+
+  const handleClickSubmit = () => {
+    console.log("You clicked submit!");
+  }
+
   return (
     <div>
       <h2>Review Your Feedback</h2>
@@ -23,7 +28,7 @@ export function SurveyReview() {
           })}
         </tbody>
       </table>
-      <button>Submit</button>
+      <button onClick={handleClickSubmit}>Submit</button>
     </div>
   );
 }
