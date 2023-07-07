@@ -28,9 +28,15 @@ export function SurveyQuestion({ page }) {
   const [inputValue, setInputValue] = useState("");
 
   const handleNextClick = () => {
+    // Update the store
     dispatch(SURVEY[page].action(inputValue));
     setInputValue("");
-    navigate(`/survey/${page + 1}`);
+
+    // Navigate to the next question page, if there is one.
+    // Otherwise, navigate to the survey review page.
+    const route =
+      page + 1 < SURVEY.length ? `/survey/${page + 1}` : "/survey/review";
+    navigate(route);
   };
 
   const handleInputChange = (event) => {
