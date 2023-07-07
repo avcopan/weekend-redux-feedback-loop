@@ -9,10 +9,10 @@ function App() {
       <Layout>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/survey/0" element={<SurveyQuestion page={0} />} />
           <Route path="/survey/1" element={<SurveyQuestion page={1} />} />
           <Route path="/survey/2" element={<SurveyQuestion page={2} />} />
           <Route path="/survey/3" element={<SurveyQuestion page={3} />} />
-          <Route path="/survey/4" element={<SurveyQuestion page={4} />} />
         </Routes>
       </Layout>
     </BrowserRouter>
