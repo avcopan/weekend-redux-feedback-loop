@@ -4,7 +4,7 @@ export function Home() {
   const navigate = useNavigate();
 
   const navigateToSurvey = () => {
-    navigate("/survey/1");
+    navigate("/survey/0");
   };
   return <button onClick={navigateToSurvey}>Start Survey</button>;
 }
