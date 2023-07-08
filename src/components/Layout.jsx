@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router-dom";
-import "./Layout.css";
 
 export function Layout({ children }) {
   const navigate = useNavigate();
@@ -9,12 +8,13 @@ export function Layout({ children }) {
   };
 
   return (
-    <div className="Layout">
-      <header className="Layout-header">
-        <h1 className="Layout-title" onClick={navigateHome}>
-          Feedback!
+    <div className="flex-1 container mx-auto bg-slate-200 rounded-xl p-8 m-10">
+      <header>
+        <h1
+         className="mb-4 text-4xl text-center"
+          onClick={navigateHome}>
+          Feedback
         </h1>
-        <h4>Don't forget it!</h4>
       </header>
       {children}
     </div>
