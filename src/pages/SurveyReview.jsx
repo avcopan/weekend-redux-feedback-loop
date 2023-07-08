@@ -1,14 +1,16 @@
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { addSurvey } from "../modules/request";
 import { makeRequestBodyFromSurvey } from "../modules/util";
 
 export function SurveyReview() {
+  const navigate = useNavigate();
   const survey = useSelector((store) => store.survey);
 
   const handleClickSubmit = () => {
     const requestBody = makeRequestBodyFromSurvey(survey);
     addSurvey(requestBody);
-    console.log("You clicked submit!");
+    navigate("/survey/success");
   };
 
   return (
