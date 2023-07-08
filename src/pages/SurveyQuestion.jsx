@@ -26,7 +26,9 @@ export function SurveyQuestion({ index }) {
     navigate(route);
   };
 
-  const navigateNext = () => {
+  const navigateNext = (event) => {
+    event.preventDefault();
+
     saveResponse();
     // Navigate to the next question page, if there is one.
     const route =
@@ -37,14 +39,17 @@ export function SurveyQuestion({ index }) {
   return (
     <>
       <h2>{survey[index].question}</h2>
-      <input
-        type="text"
-        value={response}
-        onChange={(event) => setResponse(event.target.value)}
-      />
-      <br />
-      <button onClick={navigatePrevious}>Previous</button>
-      <button onClick={navigateNext}>Next</button>
+      <form onSubmit={navigateNext}>
+        <input
+          required
+          type="text"
+          value={response}
+          onChange={(event) => setResponse(event.target.value)}
+        />
+        <br />
+        <button type="button" onClick={navigatePrevious}>Previous</button>
+        <button type="submit">Next</button>
+      </form>
     </>
   );
 }
