@@ -9,7 +9,7 @@ export function SurveyQuestion({ index }) {
   const navigate = useNavigate();
   const [response, setResponse] = useState("");
 
-  const handleClick = () => {
+  const handleClickNext = () => {
     const payload = [index, response];
     setResponse("");
 
@@ -32,7 +32,7 @@ export function SurveyQuestion({ index }) {
         onChange={(event) => setResponse(event.target.value)}
       />
       <br />
-      <button onClick={handleClick}>Next</button>
+      <button onClick={handleClickNext}>Next</button>
     </>
   );
 }
