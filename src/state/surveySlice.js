@@ -2,22 +2,22 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const BLANK_SURVEY = [
   {
-    topic: "feeling",
+    key: "feeling",
     question: "How are you feeling today?",
     response: '',
   },
   {
-    topic: "understanding",
+    key: "understanding",
     question: "How well are you understanding the content?",
     response: '',
   },
   {
-    topic: "support",
+    key: "support",
     question: "How well are you being supported?",
     response: '',
   },
   {
-    topic: "comments",
+    key: "comments",
     question: "Any comments you have?",
     response: '',
   },
