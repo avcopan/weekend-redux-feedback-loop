@@ -6,7 +6,7 @@ export function SurveySuccess() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const handleClickNewFeedback = () => {
+  const restartSurvey = () => {
     dispatch(surveySlice.actions.reset());
     navigate("/");
   }
@@ -14,7 +14,7 @@ export function SurveySuccess() {
   return (
     <div>
       <h2>Thanks for your feedback!</h2>
-      <button onClick={handleClickNewFeedback}>Leave New Feedback</button>
+      <button onClick={restartSurvey}>Leave New Feedback</button>
     </div>
   );
 }

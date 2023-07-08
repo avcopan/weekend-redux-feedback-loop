@@ -7,7 +7,7 @@ export function SurveyReview() {
   const navigate = useNavigate();
   const survey = useSelector((store) => store.survey);
 
-  const handleClickSubmit = () => {
+  const submitSurvey = () => {
     const requestBody = makeRequestBodyFromSurvey(survey);
     addSurvey(requestBody);
     navigate("/survey/success");
@@ -34,7 +34,7 @@ export function SurveyReview() {
           })}
         </tbody>
       </table>
-      <button onClick={handleClickSubmit}>Submit</button>
+      <button onClick={submitSurvey}>Submit</button>
     </div>
   );
 }
