@@ -21,7 +21,7 @@ export function SurveyReview() {
 
   return (
     <div className="flex flex-col justify-between items-center gap-5">
-      <h2>Review Your Feedback</h2>
+      <h2>Review your feedback</h2>
       <table>
         <thead>
           <tr className="bg-slate-300">

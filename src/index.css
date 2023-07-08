@@ -8,4 +8,8 @@
     @apply px-5;
     @apply py-2;
   }
+  h2 {
+    @apply text-lg;
+    @apply font-light;
+  }
 }
