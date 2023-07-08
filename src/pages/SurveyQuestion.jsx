@@ -43,7 +43,9 @@ export function SurveyQuestion({ index }) {
       <h2>{survey[index].question}</h2>
       <input
         required
-        type="text"
+        type={survey[index].type}
+        min="1"
+        max="5"
         value={response}
         onChange={(event) => setResponse(event.target.value)}
       />
