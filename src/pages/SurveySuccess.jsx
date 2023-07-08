@@ -8,7 +8,7 @@ export function SurveySuccess() {
 
   const handleClickNewFeedback = () => {
     dispatch(surveySlice.actions.reset());
-    navigate("/survey/0");
+    navigate("/");
   }
 
   return (
