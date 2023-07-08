@@ -42,8 +42,8 @@ export function SurveyQuestion({ index }) {
     >
       <h2>{survey[index].question}</h2>
       <input
-        required
         type={survey[index].type}
+        required={survey[index].type === "number"}
         min="1"
         max="5"
         value={response}
