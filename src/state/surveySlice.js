@@ -1,31 +1,31 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const BLANK_SURVEY = [
+const initialState = [
   {
     key: "feeling",
     question: "How are you feeling today?",
-    response: '',
+    response: "",
   },
   {
     key: "understanding",
     question: "How well are you understanding the content?",
-    response: '',
+    response: "",
   },
   {
     key: "support",
     question: "How well are you being supported?",
-    response: '',
+    response: "",
   },
   {
     key: "comments",
     question: "Any comments you have?",
-    response: '',
+    response: "",
   },
 ];
 
 const surveySlice = createSlice({
   name: "survey",
-  initialState: BLANK_SURVEY,
+  initialState,
   reducers: {
     enterResponse(state, action) {
       const [index, response] = action.payload;
@@ -34,6 +34,9 @@ const surveySlice = createSlice({
       // This state-mutating syntax doesn't actually mutate state, because RTK
       // uses Immer
       state[index].response = response;
+    },
+    reset() {
+      return initialState;
     },
   },
 });
